@@ -1,0 +1,88 @@
+import java.util.Scanner;
+
+class Kasir {
+  public static void main(String[] argumen) {
+
+    boolean programBerjalan = true;
+    //boolean menunjukan antara output true atau false.
+    //boolean diatas menghasilkan output true.
+
+    int totalmenu1 = 0;
+    int totalmenu2 = 0;
+    int totalmenu3 = 0;
+    int totalmenu4 = 0;
+    int totalKeuntungan = 0;
+    //deklarasi kalau variabel diatas itu integer
+
+    Scanner inputPengguna = new Scanner(System.in);
+    //buat membaca variabel yang mau diinput 
+    int nomorMenuDibeli;
+    int kuantitasMenuDibeli;
+    //deklarasi variabel yang nanti kebaca scanner, inputnya integer
+    String kataPembuka;
+    //deklarasi variabel string
+
+    while(programBerjalan) {
+        //buat pengulangan
+      kataPembuka = "========================================================";
+      kataPembuka += "\nSelamat datang di Toko Impian, silahkan pilih menu di bawah ini ?";
+      kataPembuka += "\n1.Nasi goreng arang ($ 15) - " + totalmenu1 + " terjual";
+      kataPembuka += "\n2. Mie bakar bamboe($ 30) - " + totalmenu2 + " terjual";
+      kataPembuka += "\n3. Ikan goreng gula aren ($ 25) - " + totalmenu3 + " terjual";
+      kataPembuka += "\n4. Mangga bakar asam maniez ($ 24) - " + totalmenu4 + " terjual";
+      kataPembuka += "\n9. Keluar program";
+      kataPembuka += "\n\nTotal keuntungan toko saat ini $ " + totalKeuntungan + ",,, alhamdulillah";
+      kataPembuka += "\n========================================================";
+      kataPembuka += "\n\nPilih nomor barang (1 / 2 / 3 / 4):";
+
+      System.out.println(kataPembuka);
+      nomorMenuDibeli = inputPengguna.nextInt();
+      //nanti kebaca scanner baru input data berupa integer sesuai yang udah dideklarasiin di atas.
+
+      if (nomorMenuDibeli == 1 || nomorMenuDibeli == 2 || nomorMenuDibeli == 3 || nomorMenuDibeli == 4) {
+          //pengkondisian if.
+          //logical operator or untuk mengembalikan nilai true, kalau salah satu dari kondisi pembanding bernilai true.
+
+        System.out.println("Menu nomor " + nomorMenuDibeli + " dipilih\nBerapa porsi ?");
+        kuantitasMenuDibeli = inputPengguna.nextInt();
+        //input barang yang dibeli (integer).
+
+        System.out.println("Menu nomor " + nomorMenuDibeli + " dibeli sejumlah " + kuantitasMenuDibeli + " buah");
+
+        switch(nomorMenuDibeli) {
+            //percabangan, kalau pake if nanti terlalu banyak kurang praktis.
+          case 1:
+              //keadaan 1
+            totalmenu1 += kuantitasMenuDibeli;
+            totalKeuntungan += (kuantitasMenuDibeli * 15);
+            break;
+          case 2:
+              //keadaan 2
+            totalmenu2 += kuantitasMenuDibeli;
+            totalKeuntungan += (kuantitasMenuDibeli * 30);
+            break;
+          case 3:
+              //keadaan 3
+            totalmenu3 += kuantitasMenuDibeli;
+            totalKeuntungan += (kuantitasMenuDibeli * 25);
+            break;
+          case 4:
+              //keadaan 4
+            totalmenu4 += kuantitasMenuDibeli;
+            totalKeuntungan += (kuantitasMenuDibeli * 24);
+            break;
+        }
+
+      } else if (nomorMenuDibeli == 9) {
+          //jika pernyataan if diatas tidak terpenuhi maka bisa memakai else atau pilihan lain.
+          //else diatas dengan pengkondisian if.
+          //else bisa dengan atau tanpa pengkondisian if.
+        programBerjalan = false; 
+        System.out.println("Jangan lupa berkunjung lagi");
+      } else {
+          //else tanpa pengkondisian.
+        System.out.println("Tidak berkunjung lagi juga tidak apa apa");
+      }
+    }
+  }
+}
